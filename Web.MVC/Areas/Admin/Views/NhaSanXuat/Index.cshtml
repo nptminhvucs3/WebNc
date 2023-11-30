@@ -19,11 +19,11 @@
     </thead>
 
     <tbody>
-        @foreach(var nsx in Model)
+        @foreach(var item in Model)
             {
                 <tr>
-                    <td>@nsx.TenNSX</td>
-                    <td>@nsx.MoTa</td>
+                    <td>@Html.DisplayFor(modelItem => item.TenNSX)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MoTa)</td>
                 </tr>
             }
     </tbody>

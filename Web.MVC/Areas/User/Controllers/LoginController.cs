@@ -15,20 +15,31 @@ namespace Web.MVC.Areas.User.Controllers
             return View();
         }
 
-            [HttpPost]
-            public ActionResult Login(string TaiKhoan, string MatKhau/*, int ChucVu*/)
+        [HttpPost]
+        public ActionResult Login(string TaiKhoan, string MatKhau/*, int ChucVu)*/)
             {
-                Map map = new Map();
-                var user = map.Timkiem(TaiKhoan, MatKhau/*, ChucVu*/);
+            Map map = new Map();
+            var user = map.Timkiem(TaiKhoan, MatKhau/*, ChucVu*/);
 
-                if (user != null)
-                {
-                    Session["TaiKhoan"] = TaiKhoan;
-                    return RedirectToAction("/Index", "HomeU", new { area = "User" });
-                }
-                ViewBag.error = "Tên đăng nhập hoặc mật khẩu không đúng";
-            return View();
+            if (user != null)
+            {
+                Session["TaiKhoan"] = TaiKhoan;
+                return RedirectToAction("/Index", "HomeU", new { area = "User" });
             }
+            ViewBag.error = "Tên đăng nhập hoặc mật khẩu không đúng";
+            return View();
+
+            /*Map map1 = new Map();
+            var admin = map1.TimkiemAdmin(TaiKhoan, MatKhau, ChucVu);
+            if (admin != null)
+            {
+                Session["TaiKhoan"] = TaiKhoan;
+                return RedirectToAction("/Index", "Home", new { area = "Admin" });
+            }
+            ViewBag.error = "Tên đăng nhập hoặc mật khẩu không đúng";
+            return View();*/
+        } 
+
 
 
 /*            public ActionResult Logout()

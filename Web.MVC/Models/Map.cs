@@ -10,7 +10,7 @@ namespace Web.MVC.Models
         NhaSachEntities1 db = new NhaSachEntities1();
         public NguoiDung Timkiem(string TaiKhoan, string MatKhau/*, int Chucvu*/)
         {
-            var user = db.NguoiDungs.Where(m => m.TaiKhoan == TaiKhoan & m.MatKhau == MatKhau /*& m.ChucVu==3*/).ToList();
+            var user = db.NguoiDungs.Where(m => m.TaiKhoan == TaiKhoan & m.MatKhau == MatKhau /*& m.ChucVu == 3*/).ToList();
             if (user.Count > 0)
             {
                 return user[0];
@@ -20,6 +20,19 @@ namespace Web.MVC.Models
                 return null;
             }
         }
+/*
+        public NguoiDung TimkiemAdmin(string TaiKhoan, string MatKhau, int Chucvu)
+        {
+            var user = db.NguoiDungs.Where(m => m.TaiKhoan == TaiKhoan & m.MatKhau == MatKhau & m.ChucVu == 1).ToList();
+            if (user.Count > 0)
+            {
+                return user[0];
+            }
+            else
+            {
+                return null;
+            }
+        }*/
 
     }
 }
