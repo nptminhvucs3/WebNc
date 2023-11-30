@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="clearfix"></div>
+<div class="featured-products">
+    <h3 class="title"><strong>All </strong> Books</h3>
+    <div class="control"><a id="prev_featured" class="prev" href="#">&lt;</a><a id="next_featured" class="next" href="#">&gt;</a></div>
+    <ul id="featured">
+        <li>
+            @{
+                List<Web.MVC.Models.SanPham> data = (List<Web.MVC.Models.SanPham>)ViewBag.HotProducts;
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    <div class="col-md-3 col-sm-6">
+                        <div class="products">
+                            <div class="thumbnail"><a href="@Url.Action("/Details","HomeU", new { area = "User",id= @data[i].Id })"><img src="@data[i].Anh" alt="Product Name"></a></div>
+                            <center><div style="margin-top:340px;margin-bottom:10px;font-size:17px">@data[i].TenSP</div></center>
+                            <h4 class="price">$@Html.FormatValue(data[i].DonGiaBan, "{0:#,###}")</h4>
+                            <div class="button_group">
+                                <a href="/User/Cart/AddToCart/@data[i].Id" class="button add-cart" type="button">Add To Cart</a>
+                                <button class="button compare" type="button"><i class="fa fa-exchange"></i></button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            }
+        </li>
+        
+    </ul>
+</div>
+
+
